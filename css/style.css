@@ -101,12 +101,26 @@ body {
 .heroes-item__descr {
   border: 1px solid gray;
   background-color: rgba(255, 255, 255, 0.7);
-  padding: 10px;
   border-radius: 0 0 15px 15px;
+  padding: 10px;
   font-size: 12px;
+}
+.heroes-item__text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 10px;
+  height: 150px;
 }
 .heroes-item__img {
   text-align: center;
+  height: 350px;
 }
 .heroes-item__img img {
   width: 100%;

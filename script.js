@@ -32,6 +32,35 @@ const renderMovies = ([...arr]) => {
     moviesList.append(li);
   });
 };
+const renderCards = (arr) => {
+  console.log(arr);
+  const heroesList = document.querySelector(".heroes-list > .row");
+
+  arr.forEach((item) => {
+    const card = document.createElement("div");
+    card.classList.add("col-3");
+    card.innerHTML = `
+              <div class="heroes-item">
+                <div class="heroes-item__img">
+                  <img src="./${item.photo}" alt="">
+                </div>
+                <div class="heroes-item__descr">
+                  <div class="heroes-item__hero-name"><span id="name">${item.name}</span>
+                  </div>
+                  <div class="heroes-item__text">
+                    <div class="heroes-item__real-name"><u><b>Real name:</b></u> <span id="realName">${item.realName}</span></div>
+                    <div class="heroes-item__movies"><u><b>Movies:</b></u> <span id="movies">${item.movies}</span>
+                    </div>
+                    <div class="heroes-item__status"><u><b>Hero Status:</b></u> <span id="status">${item.status}</span>
+                  </div>
+                  </div>
+                </div>
+              </div>
+    `;
+    console.log(item.movies);
+    heroesList.append(card);
+  });
+};
 
 const getMovies = (data) => {
   const movies = new Set();
@@ -45,5 +74,12 @@ const getMovies = (data) => {
   });
   renderMovies(movies);
 };
+const getHeroes = (data) => {
+  const newHeroes = data.map((item) =>
+    proection(["name", "realName", "photo", "movies", "status"], item)
+  );
+  renderCards(newHeroes);
+};
 
 getData(getMovies);
+getData(getHeroes);
