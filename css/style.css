@@ -1,0 +1,114 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Audiowide", cursive;
+  margin: 0;
+  background: url("/img/41432-kapitan_amerika_grazhdanskaya_vojna-studiya_marvel-figurka-kompyuternaya_igra-iskusstvo-1920x1080.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.main {
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+
+.movies-section {
+  border: 1px solid gray;
+  padding: 20px 10px 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+.movies-section__title {
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 20px;
+}
+.movies-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 0;
+}
+.movies-list__item {
+  padding: 10px;
+  margin-right: 5px;
+  border-radius: 15px;
+  margin-bottom: 10px;
+  list-style: none;
+  border: 1px solid red;
+}
+.movies-list__item-text {
+  cursor: pointer;
+}
+
+.heroes-section__title {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  font-style: italic;
+  border: 1px solid gray;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+.heroes-item {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-shadow: 14px 11px 10px 0px #000000;
+          box-shadow: 14px 11px 10px 0px #000000;
+  border-radius: 0 0 15px 15px;
+  margin-bottom: 15px;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+.heroes-item:hover {
+  -webkit-transform: translate(-2px, -2%);
+          transform: translate(-2px, -2%);
+}
+.heroes-item__hero-name {
+  font-family: "Audiowide", cursive;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.heroes-item__hero-name::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background-color: #000000;
+  width: 100%;
+  margin-top: 5px;
+}
+.heroes-item__descr {
+  border: 1px solid gray;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  border-radius: 0 0 15px 15px;
+  font-size: 12px;
+}
+.heroes-item__img {
+  text-align: center;
+}
+.heroes-item__img img {
+  width: 100%;
+  height: 100%;
+}
