@@ -116,7 +116,7 @@ body {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   padding: 10px;
-  height: 150px;
+  height: 170px;
 }
 .heroes-item__img {
   text-align: center;

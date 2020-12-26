@@ -33,12 +33,14 @@ const renderMovies = ([...arr]) => {
   });
 };
 const renderCards = (arr) => {
-  console.log(arr);
   const heroesList = document.querySelector(".heroes-list > .row");
 
   arr.forEach((item) => {
     const card = document.createElement("div");
-    card.classList.add("col-3");
+    card.classList.add("col-7");
+    card.classList.add("col-sm-6");
+    card.classList.add("col-md-4");
+    card.classList.add("col-lg-3");
     card.innerHTML = `
               <div class="heroes-item">
                 <div class="heroes-item__img">
@@ -49,16 +51,27 @@ const renderCards = (arr) => {
                   </div>
                   <div class="heroes-item__text">
                     <div class="heroes-item__real-name"><u><b>Real name:</b></u> <span id="realName">${item.realName}</span></div>
-                    <div class="heroes-item__movies"><u><b>Movies:</b></u> <span id="movies">${item.movies}</span>
-                    </div>
+                    <div class="heroes-item__movies"><u><b>Movies:</b></u><br></div>
                     <div class="heroes-item__status"><u><b>Hero Status:</b></u> <span id="status">${item.status}</span>
                   </div>
                   </div>
                 </div>
               </div>
     `;
-    console.log(item.movies);
     heroesList.append(card);
+
+    if(item.movies){
+      item.movies.forEach(movie => {
+        const span = document.createElement('span');
+        span.innerHTML = `${movie} <br>`;
+        card.querySelector('.heroes-item__movies').append(span);
+      });
+    } else {
+      const span = document.createElement('span');
+      span.innerHTML = `В фильмах не появлялся`;
+        card.querySelector('.heroes-item__movies').append(span);
+    }
+
   });
 };
 
