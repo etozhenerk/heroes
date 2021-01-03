@@ -16,23 +16,65 @@
 <body>
   <main class="main">
     <div class="container">
-      <section class="movies-section">
-        <div class="movies-section__title">Title movies</div>
-        <div class="movies">
-          <ul class="movies-list">
-          </ul>
+      <div class="row">
+        <div class="col-4">
+          <section class="movies-section">
+
+            <div class="select-box">
+
+              <div class="options-container">
+              </div>
+              <div class="selected">
+                Choose a movie
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
-      <section class="heroes-section">
-        <div class="heroes-section__title">Heroes</div>
-        <div class="heroes-list">
-          <div class="row justify-content-center">
-            
-          </div>
+        <div class="col-8">
+          <section class="heroes-section">
+            <div class="heroes-section__title">Heroes</div>
+            <div class="heroes-list">
+              <div class="row justify-content-center">
+
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
+      </div>
     </div>
   </main>
+  <div class="overlay">
+    <div class="popup">
+      <div class="popup-title hero-name">
+        Hero name
+      </div>
+      <div class="popup-close">
+        &times;
+      </div>
+      <div class="popup-text">
+        <div class="popup-text__img">
+          <img class="hero-img" src="./dbimage/AntMan-EndgameProfile.jpg" alt="">
+        </div>
+        <div class="popup-text__descr">
+          <div class="popup-text__real-name real-name">Real Name</div>
+          <div class="popup-text__actor"><u><b>Actor Name:</b></u> <span class="actor-name">Actor Name</span></div>
+          <div class="popup-text__status"><u><b>Hero Status:</b></u> <span class="status">alive</span></div>
+          <div class="popup-text__race"><u><b>Race:</b></u> <span class="race">race</span></div>
+          <div class="popup-text__citizenship"><u><b>Citizenship:</b></u> <span class="citizenship">citizenship</span>
+          </div>
+          <div class="popup-text__movies"><u><b>Movies:</b></u><br>
+            <span class="movies">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis, autem. Quidem
+              excepturi temporibus ad
+              fugit doloremque aspernatur suscipit eligendi numquam nihil iure? Quos in architecto repudiandae,
+              veritatis
+              asperiores ipsum nemo!</span>
+          </div>
+
+        </div>
+      </div>
+      <!-- /.popup -->
+    </div>
+  </div>
   <script src="./script.js"></script>
 </body>
 
