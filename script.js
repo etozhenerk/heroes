@@ -79,7 +79,7 @@ const changeOption = () => {
   optionsContainer.addEventListener("click", (event) => {
     const target = event.target;
     if (target.closest(".option")) {
-      selected.innerHTML = target.querySelector("label").innerHTML;
+      selected.innerHTML = target.parentElement.querySelector("label").innerHTML;
       optionsContainer.classList.remove("active");
     }
   });
