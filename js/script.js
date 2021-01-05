@@ -55,7 +55,7 @@ const renderCards = (arr) => {
                   </div>
                   <div class="heroes-item__text">
                     <div class="heroes-item__real-name"><u><b>Real name:</b></u> <span>${
-                      item.realName || "Реальное имя не известно"
+                      item.realName || "Name unknown"
                     }</span></div>
                     <div class="heroes-item__status"><u><b>Hero Status:</b></u> <span>${
                       item.status
