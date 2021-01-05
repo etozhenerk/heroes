@@ -9,15 +9,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="./css/animate.css">
   <link rel="stylesheet" href="./css/style.css">
-  <title>Document</title>
+  <title>Marvel's heroes</title>
 </head>
 
 <body>
   <main class="main">
     <div class="container">
       <div class="row">
-        <div class="col-4">
+        <div class="col-12 col-md-4">
           <section class="movies-section">
 
             <div class="select-box">
@@ -30,7 +31,7 @@
             </div>
           </section>
         </div>
-        <div class="col-8">
+        <div class="col-12 col-md-8">
           <section class="heroes-section">
             <div class="heroes-section__title">Heroes</div>
             <div class="heroes-list">
@@ -75,7 +76,11 @@
       <!-- /.popup -->
     </div>
   </div>
-  <script src="./script.js"></script>
+  <script src="./js/wow.min.js"></script>
+  <script>
+    new WOW().init();
+  </script>
+  <script src="./js/script.js"></script>
 </body>
 
 </html>

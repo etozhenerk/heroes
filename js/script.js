@@ -36,21 +36,22 @@ const renderMovies = ([...arr]) => {
 const renderCards = (arr) => {
   const heroesList = document.querySelector(".heroes-list > .row");
 
+  heroesList.innerHTML = "";
   arr.forEach((item) => {
     const card = document.createElement("div");
-    card.classList.add("col-7");
+    card.classList.add("col-12");
     card.classList.add("col-sm-6");
-    card.classList.add("col-md-4");
     card.classList.add("col-lg-4");
+    card.classList.add("wow");
+    card.classList.add("slideInUp");
     card.innerHTML = `
               <div class="heroes-item" data-name="${item.name}">
                 <div class="heroes-item__img">
                   <img src="./${item.photo}" alt="">
                 </div>
                 <div class="heroes-item__descr">
-                  <div class="heroes-item__hero-name"><span id="name">${
-                    item.name
-                  }</span>
+                  <div class="heroes-item__hero-name">
+                  ${item.name}
                   </div>
                   <div class="heroes-item__text">
                     <div class="heroes-item__real-name"><u><b>Real name:</b></u> <span>${
@@ -67,6 +68,24 @@ const renderCards = (arr) => {
     heroesList.append(card);
   });
 };
+const filter = (movieName) => {
+  getData((data) => {
+    const cards = [];
+    const heroesCard = data.map((item) =>
+      proection(["name", "realName", "photo", "movies", "status"], item)
+    );
+    heroesCard.forEach((item) => {
+      if (item.movies) {
+        item.movies.forEach((movie) => {
+          if (movie.trim() === movieName) {
+            cards.push(item);
+          }
+        });
+      }
+    });
+    renderCards(cards);
+  });
+};
 
 const changeOption = () => {
   const selected = document.querySelector(".selected"),
@@ -77,10 +96,11 @@ const changeOption = () => {
   });
 
   optionsContainer.addEventListener("click", (event) => {
-    const target = event.target;
-    if (target.closest(".option")) {
-      selected.innerHTML = target.parentElement.querySelector("label").innerHTML;
+    const target = event.target.closest(".option");
+    if (target) {
+      selected.innerHTML = target.querySelector("label").innerHTML;
       optionsContainer.classList.remove("active");
+      filter(target.querySelector("label").innerHTML);
     }
   });
 };
@@ -132,12 +152,36 @@ const togglePopup = () => {
     popup = document.querySelector(".overlay"),
     body = document.querySelector("body");
 
+  let op = 0.1;
+  popup.style.opacity = op;
+
+  let closePopup = () => {
+    const timer = setInterval(() => {
+      if (op <= 0.1) {
+        clearInterval(timer);
+        popup.style.display = "none";
+      }
+      popup.style.opacity = op;
+      op -= op * 0.1;
+    }, 15);
+  };
+  let openPopup = () => {
+    popup.style.display = "block";
+    const timer = setInterval(() => {
+      if (op >= 1) {
+        clearInterval(timer);
+      }
+      popup.style.opacity = op;
+      op += op * 0.1;
+    }, 15);
+  };
+
   heroesList.addEventListener("click", (event) => {
     const target = event.target.closest(".heroes-item");
     if (target) {
       renderPopup(target.dataset.name);
       setTimeout(() => {
-        popup.classList.add("overlay-active");
+        openPopup();
         body.style.overflow = "hidden";
       }, 100);
     }
@@ -147,7 +191,7 @@ const togglePopup = () => {
     const target = event.target;
 
     if (target.matches(".overlay") || target.matches(".popup-close")) {
-      popup.classList.remove("overlay-active");
+      closePopup();
       body.style.overflow = "auto";
     }
   });
@@ -161,7 +205,7 @@ const getMovies = (data) => {
   movie.forEach((elem) => {
     if (elem.movies) {
       elem.movies.forEach((movie) => {
-        movies.add(movie);
+        movies.add(movie.trim());
       });
     }
   });
